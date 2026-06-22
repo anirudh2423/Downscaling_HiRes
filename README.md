@@ -43,6 +43,25 @@ ERA5-conditioned high-resolution AORC 2 m temperature downscaling.
   - `/Datastorage/scdlds_anirudhavireddy/aorc_2020_jan_jun_3hr.zarr`
   - `/Datastorage/scdlds_anirudhavireddy/aorc_2020_jul_dec_3hr.zarr`
 
+### `temp_aorc_coarse_edm/`
+
+Coarse-AORC-conditioned high-resolution AORC 2 m temperature refinement.
+
+- Target: `TMP_2maboveground`
+- Patch size: `256 x 256`
+- Conditioning:
+  - topography
+  - sky-view factor
+  - cosine solar zenith angle
+  - coarse AORC `TMP_2maboveground`
+- Coarse temperature construction:
+  - normalize high-resolution AORC temperature patch
+  - block-average from `256 x 256` to `32 x 32`
+  - nearest-neighbor upsample back to `256 x 256`
+  - feed as large-scale dynamic conditioning
+- This experiment is closer to super-resolution/refinement because the coarse
+  conditioning is derived from the same AORC field as the target.
+
 ## What is tracked
 
 Tracked:
@@ -125,6 +144,13 @@ For the ERA5 temperature run:
 
 ```bash
 python -u make_temperature_plots.py
+```
+
+For the coarse-AORC temperature run:
+
+```bash
+python -u make_temperature_plots.py
+python -u make_temperature_windstyle_plot.py
 ```
 
 ## Notes
