@@ -1,0 +1,10 @@
+diffusers
+matplotlib
+numpy
+pandas
+pillow
+scipy
+tensorboard
+torch
+xarray
+zarr

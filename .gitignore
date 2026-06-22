@@ -1,0 +1,32 @@
+__pycache__/
+*.py[cod]
+*.log
+*.err
+*.out
+
+# Large data/artifacts
+*.zarr/
+*.nc
+*.nc4
+*.grib
+*.grib2
+*.npz
+*.pt
+*.pth
+*.ckpt
+
+# Training outputs
+runs/
+Plots/
+tb_logs/
+events.out.tfevents*
+
+# Local/editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Credentials
+.env
+*.pem
+*.key
