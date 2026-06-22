@@ -65,6 +65,19 @@ Ignored:
 
 ## Typical Workflow
 
+Create the Python environment first:
+
+```bash
+conda env create -f environment.yml
+conda activate downscaling-hires
+```
+
+Or install into an existing Python environment with pip:
+
+```bash
+pip install -r requirements.txt
+```
+
 For either pipeline:
 
 ```bash
